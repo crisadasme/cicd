@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, pull_request]
+on: [push]
 
 env:
   AWS_REGION: us-east-1
@@ -15,12 +15,15 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Install dependencies
+        run: echo '1) Installing dependencies'
         run: make install-dependencies
 
       - name: Run Lintern
+        run: echo '2) Running Lint'
         run: make run-lintern
 
       - name: Run Tests
+        run: echo '3) Running Tests'
         run: make run-tests
 
   # push-image:
