@@ -21,12 +21,12 @@ jobs:
           if ${{ env.BRANCH_NAME }} == 'develop'
           then
             export ENV=DEV
-          elif ${{ env.BRANCH_NAME }} == 'main
+          elif ${{ env.BRANCH_NAME }} == 'main'
           then
             export ENV=PROD
           fi
-
-          make install-dependencies ENV=$ENV
+          echo Working environment: "$ENV"
+          make install-dependencies ENV=$ENV)
 
       - name: Run Lintern
         run: |
