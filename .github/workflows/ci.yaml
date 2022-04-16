@@ -26,7 +26,7 @@ jobs:
             export ENV=PROD
           fi
           echo Working environment: "$ENV"
-          make install-dependencies ENV=$ENV)
+          make install-dependencies ENV=$ENV
 
       - name: Run Lintern
         run: |
