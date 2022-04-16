@@ -27,7 +27,7 @@ jobs:
             echo "ENV=prod" >> $GITHUB_ENV
           fi
 
-          echo 'Environment: ' $ENV 
+          echo 'Environment: ' ${{ENV}} 
           make install-dependencies ENV=$ENV
 
       - name: Run Lintern
