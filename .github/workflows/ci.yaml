@@ -6,6 +6,7 @@ env:
   AWS_REGION: us-east-1
   PROJECT_NAME: "PROJECT"
   VERSION: "v1.0.0"
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
 
 jobs:
 
@@ -17,6 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           echo '1) Installing dependencies'
+          echo ${{ env.BRANCH_NAME }}
           make install-dependencies
 
       - name: Run Lintern
