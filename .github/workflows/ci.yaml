@@ -18,7 +18,10 @@ jobs:
       - name: Install dependencies
         run: |
           echo '1) Installing dependencies'
-          echo ${{ env.BRANCH_NAME }}
+          if ${{ env.BRANCH_NAME }} == 'develop'
+          then
+            echo 'ENV="dev"'
+            echo $ENV
           make install-dependencies
 
       - name: Run Lintern
