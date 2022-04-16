@@ -21,12 +21,14 @@ jobs:
           if ${{ env.BRANCH_NAME }} == 'develop'
           then
             echo "ENV=dev" >> $GITHUB_ENV
+
           elif ${{ env.BRANCH_NAME }} == 'main'
           then
             echo "ENV=prod" >> $GITHUB_ENV
           fi
-          echo $((ENV))
-          make install-dependencies ENV=$((ENV))
+
+          echo "ENV: $ENV"
+          make install-dependencies ENV=$ENV
 
       - name: Run Lintern
         run: |
